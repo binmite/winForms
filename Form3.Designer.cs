@@ -45,7 +45,6 @@
             this.textBox1.Size = new System.Drawing.Size(189, 22);
             this.textBox1.TabIndex = 0;
             this.textBox1.Tag = "";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label1
             // 
@@ -55,7 +54,6 @@
             this.label1.Size = new System.Drawing.Size(38, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "ФИО";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -65,7 +63,6 @@
             this.label2.Size = new System.Drawing.Size(143, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Оформление заказа";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox2
             // 
@@ -92,7 +89,6 @@
             this.label4.Size = new System.Drawing.Size(51, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "Кол-во";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox3
             // 
@@ -101,7 +97,6 @@
             this.textBox3.Size = new System.Drawing.Size(53, 22);
             this.textBox3.TabIndex = 5;
             this.textBox3.Tag = "";
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // button1
             // 

@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace винформы
@@ -39,10 +35,10 @@ namespace винформы
         public string Type;
         public bool HdSupport;
         public string StorageCapacity;
-        public string Proportions;  
-        public string CPU;  
+        public string Proportions;
+        public string CPU;
     }
-   
+
 
     public partial class Form1 : Form
     {
@@ -57,12 +53,11 @@ namespace винформы
         {
             Manufacturer tempManufacturer = new Manufacturer();
             using (StreamReader sr = new StreamReader(@"manufacturer.txt"))
-                
-                {
+            {
                 while (!sr.EndOfStream)
                 {
-                    string[] line =sr.ReadLine().Split('|').ToArray();
-                    tempManufacturer.ManufacturerId = int.Parse(line[0]);                   
+                    string[] line = sr.ReadLine().Split('|').ToArray();
+                    tempManufacturer.ManufacturerId = int.Parse(line[0]);
                     tempManufacturer.Name = line[1];
                     tempManufacturer.Country = line[2];
                     manufacturers.Add(tempManufacturer);
@@ -98,7 +93,7 @@ namespace винформы
                     string[] line = sr.ReadLine().Split('|').ToArray();
                     tempAvailability.AvailabilityId = int.Parse(line[0]);
                     tempAvailability.DeviceId = int.Parse(line[1]);
-                    tempAvailability.SellerId= int.Parse(line[2]);
+                    tempAvailability.SellerId = int.Parse(line[2]);
                     tempAvailability.Amount = int.Parse(line[3]);
                     tempAvailability.Price = int.Parse(line[4]);
                     availabilities.Add(tempAvailability);
@@ -128,7 +123,7 @@ namespace винформы
             }
         }
 
-        static void getAllData() 
+        static void getAllData()
         {
             getManufacturersData();
             getSellersData();
@@ -156,8 +151,8 @@ namespace винформы
             dataGridView1.DataSource = dv;
             comboBox1.DataSource = filterConstarinsManufacturers;
         }
-            
-            public void fillDataTable(List<Device> devices,List<Manufacturer> manufacturers)
+
+        public void fillDataTable(List<Device> devices, List<Manufacturer> manufacturers)
         {
             Manufacturer tempManufacturer;
             foreach (var device in devices)
@@ -166,14 +161,14 @@ namespace винформы
                 dt.Rows.Add(device.Model, tempManufacturer.Name, device.Type, device.HdSupport, device.StorageCapacity, device.CPU.ToString());
             }//добавлени естрок в таблицу
         }
-        
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-       
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string data = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
@@ -187,12 +182,12 @@ namespace винформы
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedItem = comboBox1.SelectedItem.ToString();
-            if(dv!= null)
+            if (dv != null)
             {
                 if (selectedItem != "None")
                 {
                     dv.RowFilter = string.Format("[Manufacturer] Like '%{0}%'", selectedItem);
-                    dataGridView1.DataSource=dv;
+                    dataGridView1.DataSource = dv;
                 }
                 else
                 {

@@ -59,9 +59,9 @@ namespace винформы
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int amount = int.Parse(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
-            int price = int.Parse(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
-            Form3 form3 = new Form3(price,amount);
+            int price = int.Parse(dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
+            int amount = int.Parse(dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+            Form3 form3 = new Form3(price, amount);
             form3.Owner = this;
             form3.Show();
         }
